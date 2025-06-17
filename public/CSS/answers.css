@@ -1,0 +1,212 @@
+.answer-container{
+     position: relative;
+     width: 90%;
+     height: 150px;
+     margin: 3% 5%;
+     float: left;
+     box-shadow: 1px 1px 9px gray;
+     text-decoration: none;
+     color: black;
+     transition: 0.5s ease;
+}
+
+.answer-container:hover{
+     background-color: gainsboro;
+}
+
+.answer-container img{
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     border: 1px solid gray;
+     margin-right: 5%;
+     margin-top: 35px;
+     margin-left: 2%;
+     float: left;
+}
+
+.answer-container .information{
+     margin-top: 35px;
+     height: 80px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+.answer-container .information .title{
+     font-weight: 800;
+}
+
+.answer-container .information .title span{
+     font-weight: 500;
+}
+
+.add-btn{
+     width: 50px;
+     height: 50px;
+     background-color: pink;
+     color: white;
+     font-weight: 800;
+     border-radius: 50%;
+     position: fixed;
+     bottom: 3%;
+     right: 3%;
+     border: none;
+     font-size: 20px;
+     cursor: pointer;
+     outline: none;
+}
+
+.success{
+     position: absolute;
+     padding: 1%;
+     top: 1%;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 30%;
+     height: 30px;
+     border-radius: 8px;
+     color: white;
+     background-color: green;
+     font-size: 20px;
+     text-align: center;
+     line-height: 30px;
+}
+
+.add-form{
+     display: none;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(128, 128, 128, 0.336);
+     position: fixed;
+     top: 0;
+     left: 0;
+}
+
+.add-form .container img{
+     width: 50px;
+     height: 50px;
+     cursor: pointer;
+     position: absolute;
+     right: 1%;
+}
+
+.add-form .container{
+     width: 30%;
+     height: 300px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: white;
+     border-radius: 8px;
+}
+
+.add-form .container input{
+     margin-top: 15%;
+     width: 90%;
+     height: 50px;
+     text-indent: 2%;
+     margin-left: 5%;
+     border: 1px solid black;
+     border-radius: 8px;
+     outline: none;
+     font-size: 20px;
+}
+
+.add-form .container button{
+     width: 50%;
+     height: 40px;
+     background-color: gainsboro;
+     color: black;
+     font-size: 20px;
+     border: none;
+     border-radius: 8px;
+     margin-left: 25%;
+     margin-top: 20%;
+     cursor: pointer;
+}
+
+.question{
+     font-size: 20px;
+     font-weight: bold;
+     margin-left: 1%;
+     margin-bottom: 1%;
+}
+
+.btns-container{
+     width: 50%;
+     margin-left: 25%;
+     display: flex;
+     justify-content: space-between;
+     margin-top: 2%;
+}
+
+.btns-container .btn{
+     width: 40%;
+     height: 40px;
+     border: none;
+     border-radius: 8px;
+     color: white;
+     outline: none;
+     font-size: 20px;
+     text-align: center;
+     text-decoration: none;
+     line-height: 40px;
+     cursor: pointer;
+}
+
+.btns-container .edit-btn{
+     background-color: orange;
+}
+
+.btns-container .delete-btn{
+     background-color: red;
+}
+
+.answer-container .delete-btn-container{
+     width: 50px;
+     height: 50px;
+     border-radius: 0;
+     border: none;
+     position: absolute;
+     top: 50%;
+     right: 2%;
+     transform: translateY(-50%);
+     margin: 0 !important;
+     cursor: pointer;
+     box-shadow: none;
+}
+
+.answer-container .delete-btn-container .delete-btn{
+     width: 50px;
+     height: 50px;
+     border-radius: 0;
+     border: none;
+     margin: 0;
+}
+
+@media only screen and (width <540px) {
+     .answer-container{
+          width: 90%;
+          height: 150px;
+          margin: 3% 5%;
+          float: left;
+          box-shadow: 1px 1px 9px gray;
+          cursor: pointer;
+          text-decoration: none;
+          color: black;
+          transition: 0.5s ease;
+     }
+
+     .add-form .container{
+          width: 80%;
+          height: 300px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          border-radius: 8px;
+     }
+}

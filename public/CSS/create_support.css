@@ -1,0 +1,68 @@
+.main-title{
+     text-align: center;
+}
+
+form{
+     width: 50%;
+     height: 200px;
+     margin-left: 25%;
+     margin-top: 5%;
+}
+
+form textarea{
+     width: 90%;
+     height: 100px;
+     margin-left: 5%;
+     border-radius: 8px;
+     text-indent: 2%;
+     font-size: 20px;
+     outline: none;
+}
+
+form button{
+     width: 50%;
+     height: 40px;
+     border: none;
+     border-radius: 8px;
+     background-color: gainsboro;
+     font-size: 20px;
+     margin-left: 25%;
+     margin-top: 2%;
+     cursor: pointer;
+     transition: 0.5s ease;
+}
+
+form button:hover{
+     background: none;
+     border: 1px solid gray;
+     color: gray;
+}
+
+.success {
+     position: absolute;
+     padding: 1%;
+     top: 1%;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 30%;
+     height: 30px;
+     border-radius: 8px;
+     color: white;
+     background-color: green;
+     font-size: 20px;
+     text-align: center;
+     line-height: 30px;
+}
+
+@media only screen and (width <540px){
+     form{
+          margin-top: 25%;
+          width: 70%;
+          margin-left: 15%;
+     }
+
+     form textarea{
+          width: 100%;
+          margin-left: 0;
+     }
+}
