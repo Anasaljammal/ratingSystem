@@ -1,138 +1,157 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN EDIT SERVICE TYPE PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-.error{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: red;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.error {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--error-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.title{
-     text-align: center;
-     margin-top: 2%;
+.title {
+    text-align: center;
+    margin: var(--space-2xl) 0;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-form{
-     width: 40%;
-     height: 250px;
-     margin-left: 30%;
-     margin-top: 10%;
-     border-radius: 8px 0 8px 0;
-     background-color: whitesmoke;
-     box-shadow: 0px 1px 10px;
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: var(--space-2xl) auto;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    border: 1px solid var(--border-color);
 }
 
-form input{
-     width: 90%;
-     margin-left: 5%;
-     height: 40px;
-     border-radius: 8px;
-     border: none;
-     background-color: gainsboro;
-     font-size: 20px;
-     text-indent: 2%;
-     outline: none;
-     margin-top: 7%;
+form input {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    outline: none;
+    transition: all var(--transition-base);
 }
 
-form button{
-     width: 30%;
-     height: 40px;
-     border-radius: 10px;
-     border: none;
-     margin-top: 20%;
-     background-color: blue;
-     color: white;
-     font-size: 20px;
-     cursor: pointer;
-     transition: 0.5s;
+form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-form button:hover{
-     background: none;
-     border: 1px solid blue;
-     color: blue;
+form .buttons-container {
+    display: flex;
+    gap: var(--space-md);
+    width: 100%;
 }
 
-form .buttons-container{
-     display: flex;
-     justify-content: space-between;
-     width: 90%;
-     margin-left: 5%;
+form button {
+    flex: 1;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
-form .buttons-container a{
-     width: 30%;
-     height: 40px;
-     border-radius: 10px;
-     background-color: red;
-     border: none;
-     margin-top: 20%;
-     color: white;
-     font-size: 20px;
-     cursor: pointer;
-     text-decoration: none;
-     text-align: center;
-     line-height: 40px;
-     transition: 0.5s;
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-form .buttons-container a:hover{
-     background: none;
-     border: 1px solid red;
-     color: red;
+form .buttons-container a {
+    flex: 1;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--error-color);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
-.back-btn{
-     width: 50px;
-     height: 50px;
-     position: absolute;
-     top: 1%;
-     left: 1%;
+form .buttons-container a:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-.back-btn img{
-     width: 100%;
-     height: 100%;
+.back-btn {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-@media only screen and (width <540px){
-     form{
-          width: 70%;
-          margin-left: 15%;
-          margin-top: 50%;
-     }
+.back-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
 
-     form .buttons-container{
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-     }
+.back-btn img {
+    width: 100%;
+    height: 100%;
+}
 
-     form .buttons-container a{
-          margin-top: 10%;
-     }
-
-     form button , form .buttons-container a{
-          width: 80%;
-     }
-
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+@media (max-width: 640px) {
+    form {
+        margin: var(--space-xl) var(--space-md);
+        padding: var(--space-xl);
+    }
+    
+    form .buttons-container {
+        flex-direction: column;
+    }
+    
+    .title {
+        font-size: var(--text-2xl);
+    }
+    
+    .error {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

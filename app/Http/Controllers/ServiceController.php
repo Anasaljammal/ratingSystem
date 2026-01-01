@@ -108,6 +108,7 @@ class ServiceController extends Controller
         }
         if ($total_rates > 0)
             $total_rates = $total_rates / count($service->rates);
+        // return $service->rates[0]->analyze['class'];
         return view('services.service_information', compact('service', 'user', 'total_rates'));
     }
 

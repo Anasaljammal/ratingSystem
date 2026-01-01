@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\SentimentService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,7 @@ class UserRate extends Model
         'stars',
         'comment',
     ];
+    protected $appends = ['analyze'];
 
     public function user()
     {
@@ -24,5 +26,14 @@ class UserRate extends Model
     public function service()
     {
         return $this->belongsTo(Service::class, 'service_id', 'id');
+    }
+
+    public function getAnalyzeAttribute()
+    {
+        if ($this->comment) {
+            $service = new SentimentService();
+            $check = $service->analyze($this->comment);
+            return $check;
+        }
     }
 }

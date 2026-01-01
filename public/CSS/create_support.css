@@ -1,68 +1,103 @@
-.main-title{
-     text-align: center;
+/* ============================================
+   MODERN CREATE SUPPORT PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-form{
-     width: 50%;
-     height: 200px;
-     margin-left: 25%;
-     margin-top: 5%;
+.main-title {
+    text-align: center;
+    margin: var(--space-2xl) 0;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-form textarea{
-     width: 90%;
-     height: 100px;
-     margin-left: 5%;
-     border-radius: 8px;
-     text-indent: 2%;
-     font-size: 20px;
-     outline: none;
+form {
+    width: 100%;
+    max-width: 700px;
+    margin: var(--space-2xl) auto;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-3xl);
+    border: 1px solid var(--border-color);
 }
 
-form button{
-     width: 50%;
-     height: 40px;
-     border: none;
-     border-radius: 8px;
-     background-color: gainsboro;
-     font-size: 20px;
-     margin-left: 25%;
-     margin-top: 2%;
-     cursor: pointer;
-     transition: 0.5s ease;
+form textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    outline: none;
+    resize: vertical;
+    transition: all var(--transition-base);
 }
 
-form button:hover{
-     background: none;
-     border: 1px solid gray;
-     color: gray;
+form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+form button {
+    width: 100%;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .success {
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: green;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--success-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-@media only screen and (width <540px){
-     form{
-          margin-top: 25%;
-          width: 70%;
-          margin-left: 15%;
-     }
-
-     form textarea{
-          width: 100%;
-          margin-left: 0;
-     }
+@media (max-width: 640px) {
+    form {
+        margin: var(--space-xl) var(--space-md);
+        padding: var(--space-xl);
+    }
+    
+    .main-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .success {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

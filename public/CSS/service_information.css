@@ -1,552 +1,718 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN SERVICE INFORMATION PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-body{
-     height: 90vh;
+.success {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--success-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.success{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: green;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+a .prev-btn {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: none;
+    background-image: url(../SVG/back-square.svg);
+    background-size: cover;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-a .prev-btn{
-     position: absolute;
-     top: 1%;
-     left: 1%;
-     width: 50px;
-     height: 50px;
-     border: none;
-     background: none;
-     background-image: url(../SVG/back-square.svg);
-     background-size: cover;
-     cursor: pointer;
+a .prev-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.service-image{
-     width: 40%;
-     height: 80%;
-     margin-left: 5%;
-     margin-top: 5%;
-     float: left;
+.total-stars {
+    width: 100%;
+    max-width: 400px;
+    margin: var(--space-2xl) auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
-.service-image .main-image-container{
-     width: 90%;
-     height: 100%;
-     border: 2px solid black;
-     float: right;
+.total-stars h2 {
+    color: var(--warning-color);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-left: var(--space-sm);
 }
 
-.service-image .main-image-container img{
-     width: 100%;
-     height: 100%;
-     animation-name: image-view;
-     animation-duration: 0.5s;
+.total-stars img {
+    width: 40px;
+    height: 40px;
 }
 
-.service-image .images-container{
-     height: 100%;
-     overflow-y: scroll;
-     overflow-x: hidden;
+.service-image {
+    width: 100%;
+    max-width: 600px;
+    margin: var(--space-xl) auto;
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
 }
 
-.service-image .images-container::-webkit-scrollbar{
-     display: none;
+.service-image .main-image-container {
+    flex: 1;
+    min-height: 500px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-card);
 }
 
-.service-image .images-container img{
-     width: 100%;
-     height: 50px;
-     margin-top: 50%;
-     cursor: pointer;
+.service-image .main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation-name: image-view;
+    animation-duration: 0.5s;
 }
 
-.service-information{
-     float: left;
-     width: 35%;
-     height: 80%;
-     padding-top: 1%;
-     text-align: left;
-     margin-left: 10%;
+.service-image .images-container {
+    width: 100px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    background: var(--bg-card);
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
 }
 
-.service-information h1{
-     margin-top: 10%;
-     display: flex;
-     justify-content: space-between;
+.service-image .images-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-.service-information .buttons{
-     display: flex;
-     justify-content: space-between;
+.service-image .images-container::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius-full);
 }
 
-.service-information .buttons button{
-     width: 45%;
-     height: 50px;
-     margin: 5% 0 2% 0;
-     border: none;
-     color: white;
-     border-radius: 8px;
-     font-size: 15px;
-     font-weight: 500;
-     cursor: pointer;
-     outline: none;
-     transition: 0.5s;
+.service-image .images-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--border-radius-full);
 }
 
-.service-information .buttons .service-provider-information{
-     background-color: rebeccapurple;
+.service-image .images-container img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    transition: all var(--transition-base);
 }
 
-.service-information .buttons .rating{
-     background-color: rgb(5, 59, 158);
+.service-image .images-container img:hover {
+    border-color: var(--primary-color);
+    transform: scale(1.05);
 }
 
-.service-information .buttons .reporting{
-     background-color: red;
-     width: 100%;
+.service-information {
+    width: 100%;
+    max-width: 800px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-2xl);
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
 }
 
-.service-information .buttons .service-provider-information:hover{
-     background: none;
-     color: rebeccapurple;
-     border: 1px solid rebeccapurple;
+.service-information h1 {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.service-information .buttons .rating:hover{
-     background: none;
-     color: rgb(5, 59, 158);
-     border: 1px solid rebeccapurple;
+.service-information h1 span {
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-.service-information .buttons .reporting:hover{
-     background: none;
-     color: red;
-     border: 1px solid red;
+.service-information .buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: space-between;
+    margin-top: var(--space-xl);
 }
 
-.total-stars{
-     width: 30%;
-     margin-left: 30%;
-     margin-top: 3%;
-     text-align: center;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
+.service-information .buttons button {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    border: none;
+    color: white;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
-.total-stars h2{
-     color: yellow;
-     font-size: 25px;
-     font-weight: 700;
+.service-information .buttons .service-provider-information {
+    background: var(--secondary-gradient);
 }
 
-.total-stars img{
-     width: 50px;
-     height: 50px;
+.service-information .buttons .service-provider-information:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-.service-information .rates-section{
-     width: 100%;
-     max-height: 200px;
-     overflow-y: scroll;
+.service-information .buttons .rating {
+    background: var(--info-color);
 }
 
-.service-information .rates-section::-webkit-scrollbar{
-     display: none;
+.service-information .buttons .rating:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-.service-information .rates-section .rate{
-     width: 100%;
+.service-information .buttons .reporting {
+    background: var(--error-color);
+    width: 100%;
+    margin-top: var(--space-md);
 }
 
-.service-information .rates-section .rate .date{
-     color: rgb(49, 48, 48);
-     font-size: 15px;
+.service-information .buttons .reporting:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-.service-information .rates-section .rate .container{
-     display: flex;
-     height: 50px;
-     align-items: center;
-     position: relative;
+.service-information .rates-section {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: var(--space-xl);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
 }
 
-.service-information .rates-section .rate .container .delete-btn{
-     position: absolute;
-     right: 0;
+.service-information .rates-section::-webkit-scrollbar {
+    width: 8px;
 }
 
-.service-information .rates-section .rate .container .delete-btn img{
-     width: 20px;
-     height: 20px;
+.service-information .rates-section::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius-full);
 }
 
-.service-information .rates-section .rate .container .profile-image{
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
+.service-information .rates-section::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--border-radius-full);
 }
 
-.service-information .rates-section .rate .container .username{
-     margin-left: 5%;
-     font-weight: 700;
-     width: 30%;
+.service-information .rates-section .rate {
+    width: 100%;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
 }
 
-.service-information .rates-section .rate .container .stars{
-     display: flex;
-     justify-content: space-between;
-     position: absolute;
-     right: 5%;
+.service-information .rates-section .rate .date {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-sm);
 }
 
-.service-information .rates-section .rate .container .stars img{
-     width: 15px;
-     height: 15px;
+.service-information .rates-section .rate .container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+    position: relative;
 }
 
-.service-information .rates-section .rate .comment{
-     font-style: italic;
+.service-information .rates-section .rate .container .delete-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.service-information .rates-section hr{
-     margin: 3% 0;
+.service-information .rates-section .rate .container .delete-btn img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-.service-provider-information-section{
-     display: none;
-     position: fixed;
-     top: 50%;
-     left: 50%;
-     width: 60%;
-     height: 70%;
-     transform: translate(-50%,-50%);
-     background-color: black;
-     border-radius: 8px;
-     overflow: hidden;
-     animation-duration: 0.3s;
+.service-information .rates-section .rate .container .delete-btn img:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-.service-provider-information-section .container{
-     position: relative;
-     width: 100%;
-     height: 100%;
+.service-information .rates-section .rate .container .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
 }
 
-.service-provider-information-section img{
-     width: 35%;
-     height: 60%;
-     float: left;
-     margin-top: 10%;
-     margin-left: 5%;
-     border-radius: 15px;
+.service-information .rates-section .rate .container .username {
+    flex: 1;
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
-.service-provider-information-section .details{
-     float: left;
-     color: white;
-     width: 40%;
-     height: 50%;
-     margin-top: 13%;
-     margin-left: 5%;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
+.service-information .rates-section .rate .container .stars {
+    display: flex;
+    gap: var(--space-xs);
 }
 
-.service-provider-information-section .container .details div{
-     display: flex;
-     justify-content: space-between;
-     font-size: 20px;
+.service-information .rates-section .rate .container .stars img {
+    width: 20px;
+    height: 20px;
 }
 
-.service-provider-information-section .container .close{
-     position: absolute;
-     top: -15%;
-     right: 2%;
-     width: 50px;
-     height: 50px;
-     cursor: pointer;
+.service-information .rates-section .rate .comment {
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-left: calc(50px + var(--space-md));
+    margin-top: var(--space-sm);
+    line-height: 1.6;
 }
 
-.background{
-     display: none;
-     position: absolute;
-     top: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(114, 108, 108, 0.432);
+.service-information .rates-section hr {
+    margin: var(--space-lg) 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
 }
 
-.rating-section{
-     display: none;
-     width: 40%;
-     height: 60%;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%,-50%);
-     background-color: black;
-     border-radius: 10px;
-     overflow: hidden;
-     animation-duration: 0.3s;
+.service-information .rates-section .rate .sound-btn {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: var(--text-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
 }
 
-.rating-section .stars{
-     width: 50%;
-     margin-left: 25%;
-     margin-top: 10%;
-     display: flex;
-     justify-content: space-between;
+.service-information .rates-section .rate .sound-btn:hover {
+    transform: scale(1.2);
 }
 
-.rating-section .stars img{
-     width: 40px;
-     height: 40px;
-     cursor: pointer;
+.service-information .rates-section .rate .summorize-btn {
+    width: auto;
+    padding: var(--space-sm) var(--space-lg);
+    margin-left: calc(50px + var(--space-md));
+    margin-top: var(--space-sm);
+    border: none;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: var(--text-sm);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
 }
 
-.rating-section .inputs-container{
-     display: none;
+.service-information .rates-section .rate .summorize-btn:hover {
+    background: var(--primary-color);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-.rating-section .close{
-     width: 50px;
-     height: 50px;
-     position: absolute;
-     top: 2%;
-     right: 2%;
-     cursor: pointer;
+.service-provider-information-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    z-index: 2000;
+    border: 1px solid var(--border-color);
 }
 
-.rating-section form textarea{
-     width: 90%;
-     height: 130px;
-     background: none;
-     border: 1px solid white;
-     border-radius: 0 10px 10px 10px;
-     margin-left: 5%;
-     margin-top: 3%;
-     font-size: 20px;
-     color: white;
+.service-provider-information-section .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-2xl);
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
 }
 
-.rating-section form button{
-     width: 30%;
-     height: 40px;
-     margin-left: 35%;
-     margin-top: 3%;
-     border: none;
-     font-size: 20px;
-     border-radius: 8px;
-     cursor: pointer;
-     transition: 0.5s;
+.service-provider-information-section img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-lg);
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    flex-shrink: 0;
 }
 
-.rating-section form button:hover{
-     color: white;
-     border: 1px solid white;
-     background: none;
+.service-provider-information-section .details {
+    flex: 1;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
 }
 
-.reporting-section{
-     display: none;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(128, 128, 128, 0.301);
-     position: fixed;
-     top: 0;
-     left: 0;
+.service-provider-information-section .container .details div {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-base);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.reporting-section .reporting-container{
-     width: 30%;
-     height: 250px;
-     position: absolute;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-color: white;
-     border-radius: 8px;
+.service-provider-information-section .container .details div span {
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-.reporting-section .reporting-container .close-btn{
-     width: 50px;
-     height: 50px;
-     position: absolute;
-     top: 1%;
-     right: 1%;
-     cursor: pointer;
+.service-provider-information-section .container .close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-.reporting-section .reporting-container .title{
-     text-align: center;
+.service-provider-information-section .container .close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
 }
 
-.reporting-section .reporting-container form{
-     margin-top: 10%;
+.background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
 }
 
-.reporting-section .reporting-container form textarea{
-     width: 90%;
-     height: 100px;
-     margin-left: 5%;
-     border-radius: 8px;
-     outline: none;
-     text-indent: 2%;
+.rating-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-2xl);
+    overflow: hidden;
+    z-index: 2000;
+    padding: var(--space-2xl);
+    border: 1px solid var(--border-color);
 }
 
-.reporting-section .reporting-container form button{
-     width: 50%;
-     height: 30px;
-     margin-left: 25%;
-     margin-top: 2%;
-     border: none;
-     background-color: gainsboro;
-     font-size: 20px;
-     font-weight: 800;
-     border-radius: 8px;
-     outline: none;
-     cursor: pointer;
+.rating-section .stars {
+    width: 100%;
+    margin: var(--space-xl) auto;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.rating-section .stars img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.rating-section .stars img:hover {
+    transform: scale(1.2);
+}
+
+.rating-section .inputs-container {
+    display: none;
+}
+
+.rating-section .close {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
+}
+
+.rating-section .close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.rating-section form textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    margin: var(--space-lg) 0;
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    outline: none;
+    resize: vertical;
+    transition: all var(--transition-base);
+}
+
+.rating-section form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.rating-section form button {
+    width: 100%;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: none;
+    font-size: var(--text-base);
+    font-weight: 600;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.rating-section form button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.rating-section form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.reporting-section {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+.reporting-section .reporting-container {
+    width: 90%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-2xl);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--space-2xl);
+    border: 1px solid var(--border-color);
+}
+
+.reporting-section .reporting-container .close-btn {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
+}
+
+.reporting-section .reporting-container .close-btn:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.reporting-section .reporting-container .title {
+    text-align: center;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-xl);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.reporting-section .reporting-container form {
+    margin-top: var(--space-lg);
+}
+
+.reporting-section .reporting-container form textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: var(--space-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    outline: none;
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    resize: vertical;
+    transition: all var(--transition-base);
+}
+
+.reporting-section .reporting-container form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.reporting-section .reporting-container form button {
+    width: 100%;
+    padding: var(--space-md) var(--space-xl);
+    margin-top: var(--space-lg);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius-md);
+    outline: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.reporting-section .reporting-container form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 @keyframes image-view {
-     from{
-          opacity: 0;
-     }
-     to{
-          opacity: 1;
-     }
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-@keyframes open-service-provide-details {
-     from{
-          width: 0;
-     }
-     to{
-          width: 60%;
-     }
+@media (max-width: 1024px) {
+    .service-image {
+        flex-direction: column;
+    }
+    
+    .service-image .images-container {
+        width: 100%;
+        max-height: 120px;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    
+    .service-image .images-container img {
+        width: 100px;
+        height: 100px;
+        flex-shrink: 0;
+    }
 }
 
-@keyframes close-service-provide-details {
-     from{
-          width: 60%;
-     }
-     to{
-          width: 0;
-     }
-}
-
-@keyframes open-rating {
-     from{
-          width: 0;
-     }
-     to{
-          width: 40%;
-     }
-}
-
-@keyframes close-rating {
-     from{
-          width: 40%;
-     }
-     to{
-          width: 0;
-     }
-}
-
-@media only screen and (width <540px){
-     .total-stars{
-          width: 40%;
-          margin-left: 25%;
-     }
-     
-     .total-stars h2{
-          margin-left: 10%;
-     }
-     
-     .total-stars img{
-          width: 40px;
-          height: 40px;
-     }
-
-     .service-image{
-          width: 95%;
-          height: 90%;
-     }
-
-     .service-information{
-          width: 95%;
-          height: 80%;
-          margin-left: 5%;
-     }
-
-     .service-information h1{
-          font-size: 20px;
-     }
-
-     .service-information .rates-section .rate .container .username{
-          margin-left: 5%;
-          font-weight: 700;
-          width: 23%;
-     }
-
-     .service-information .rates-section .rate .container .stars{
-          right: 7%;
-     }
-
-     .service-information .rates-section{
-          height: 90%;
-     }
-
-     .service-provider-information-section{
-          width: 95%;
-          height: 30%;
-     }
-
-     .service-provider-information-section .container .details div{
-          display: flex;
-          justify-content: space-between;
-          font-size: 12px;
-     }
-
-     .rating-section{
-          width: 95%;
-          height: 50%;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          background-color: black;
-          border-radius: 10px;
-          overflow: hidden;
-          animation-duration: 0.3s;
-     }
-
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
-
-     .reporting-section .reporting-container{
-          width: 80%;
-          height: 250px;
-     }
+@media (max-width: 768px) {
+    .total-stars {
+        width: 90%;
+        padding: var(--space-sm);
+    }
+    
+    .total-stars img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .service-information {
+        padding: var(--space-lg);
+        margin: var(--space-lg) var(--space-md);
+    }
+    
+    .service-information .buttons {
+        flex-direction: column;
+    }
+    
+    .service-provider-information-section .container {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-lg);
+    }
+    
+    .service-provider-information-section img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .rating-section {
+        width: 95%;
+        padding: var(--space-lg);
+    }
+    
+    .reporting-section .reporting-container {
+        width: 95%;
+        padding: var(--space-lg);
+    }
+    
+    .success {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

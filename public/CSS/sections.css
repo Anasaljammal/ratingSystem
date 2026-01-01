@@ -1,265 +1,278 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN SECTIONS PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-body{
-     height: 100vh;
+.success {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--success-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.success{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: green;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.slick-list {
+    width: 100%;
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) 0;
 }
 
-.slick-list{
-     width: 100%;
-     height: 350px;
+article {
+    margin-top: var(--space-2xl);
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--space-xl);
 }
 
-.image-section{
-     position: relative;
-     width: 70%;
-     margin-left: 15%;
-     margin-top: 3%;
+.title {
+    width: 100%;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 4px solid;
+    border-image: var(--primary-gradient) 1;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.image-section img{
-     width: 100%;
-     height: 450px;
+.sections {
+    display: flex !important;
+    gap: var(--space-xl);
+    overflow: visible !important;
 }
 
-.image-section .details{
-     width: 70%;
-     position: absolute;
-     top: 40%;
-     left: 3%;
-     color: white;
-     font-size: 20px;
-     font-weight: 600;
+.sections .card {
+    position: relative;
+    cursor: pointer;
+    width: 280px !important;
+    min-width: 280px;
+    height: 360px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
-.image-section .details h1{
-     font-size: 35px;
-     font-weight: 700;
+.sections .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
 }
 
-article{
-     margin-top: 5%;
-     width: 90%;
-     height: auto;
-     margin-left: 5%;
+.sections .card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
-.title{
-     width: 90%;
-     margin-left: 5%;
-     border-bottom: 5px solid rgb(9, 136, 136);
-     font-size: 30px;
-     font-weight: 800;
-     color: rgb(9, 136, 136);
-     text-shadow: 0px 9px 7px;
+.sections .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform var(--transition-base);
 }
 
-.sections{
-     width: 100%;
-     height: auto;
-     margin-top: 2%;
-     display: flex;
-     overflow: hidden;
+.sections .card:hover img {
+    transform: scale(1.05);
 }
 
-.sections .card{
-     position: relative;
-     cursor: pointer;
-     margin-top: 1%;
-     float: left;
-     width: 250px !important;
-     height: 290px !important;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: space-between;
-     box-shadow: -4px -4px 15px 0px;
-     margin-left: 5%;
-     border-radius: 8px;
-     margin-bottom: 5%;
+.sections .card .card-name {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.sections .card a{
-     display: flex;
-     outline: none;
-     height: 290px;
-     width: 100%;
-     flex-direction: column;
-     align-items: center;
-     justify-content: space-between;
-     text-decoration: none;
+.sections .card .stars {
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
 }
 
-.sections .card img{
-     width: 80%;
-     height: 200px;
+.sections .card .stars img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
-.sections .card .card-name{
-     text-align: center;
-     font-size: 20px;
-     font-weight: 700;
-     color: rgb(0, 81, 255);
+.sections .card .stars div {
+    margin-left: var(--space-sm);
+    font-weight: 700;
+    color: var(--warning-color);
+    font-size: var(--text-base);
 }
 
-.sections .card .stars{
-     width: 70%;
-     margin-bottom: 2%;
-     display: flex;
-     justify-content: space-between;
+.sections .card .edit-btn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    z-index: 10;
 }
 
-.sections .card .stars div{
-     width: 10%;
-     color: yellow;
-     margin-left: 10%;
-     font-weight: 800;
+.sections .card .edit-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-primary);
 }
 
-.sections .card .stars img{
-     width: 20px;
-     height: 20px;
-     fill: gray !important;
+.sections .card .edit-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
 
-.sections .card .price{
-     width: 50%;
-     display: flex;
-     justify-content: space-between;
-     font-weight: 500;
-     color: rgb(0, 81, 255);
-     margin: 3% 0;
+.control-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-md);
+    margin: var(--space-2xl) 0;
 }
 
-.sections .card .price span{
-     color: black;
+.prev-btn,
+.next-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    border: none;
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.prev-btn, .next-btn{
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     font-size: 20px;
-     outline: none  ;
+.prev-btn:hover,
+.next-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
 }
 
-.prev-btn{
-     left: 10%;
+.prev-btn:active,
+.next-btn:active {
+    transform: scale(0.95);
 }
 
-.control-btns{
-     width: 60%;
-     margin-left: 20%;
-     display: flex;
-     flex-direction: row-reverse;
-     justify-content: space-between;
+.add-section {
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    bottom: var(--space-2xl);
+    right: var(--space-2xl);
+    text-decoration: none;
+    background: var(--secondary-gradient);
+    border-radius: 50%;
+    color: white;
+    font-size: var(--text-3xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-xl);
+    transition: all var(--transition-base);
+    z-index: 1000;
+    font-weight: 300;
 }
 
-.control-btns button{
-     border: none;
-     background-color: cyan;
-     color: white;
-     font-weight: 800;
+.add-section:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: var(--shadow-2xl);
 }
 
-.sections .card .edit-btn{
-     text-decoration: none;
-     width: 40px;
-     height: 40px;
-     position: absolute;
-     top: 0;
-     right: 0;
-     z-index: 1000;
+/* Responsive Design */
+@media (max-width: 968px) {
+    article {
+        padding: 0 var(--space-md);
+    }
+    
+    .sections .card {
+        width: 240px !important;
+        min-width: 240px;
+        height: 320px;
+    }
+    
+    .sections .card img {
+        height: 160px;
+    }
 }
 
-.sections .card .edit-btn img{
-     width: 40px;
-     height: 40px;
-     opacity: 0.6;
-}
-
-.add-section{
-     width: 50px;
-     height: 50px;
-     position: fixed;
-     bottom: 5%;
-     left: 5%;
-     text-decoration: none;
-     background-color: pink;
-     border-radius: 50%;
-     color: white;
-     font-size: 25px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-}
-
-@media only screen and (width <540px){
-     .sections{
-          width: 90%;
-          margin-top: 2%;
-          overflow: hidden;
-     }
-
-     .slick-list{
-          height: 300px;
-     }
-
-     .sections .card{
-          width: 200px !important;
-          height: 260px !important;
-          box-shadow: -4px -4px 5px 0px;
-          margin-bottom: 5%;
-     }
-
-     .sections .card img{
-          height: 150px;
-
-     }
-
-     .image-section{
-          width: 90%;
-          margin-left: 5%;
-          height: 200px;
-     }
-
-     .image-section img{
-          height: 200px;
-     }
-
-     .image-section .details{
-          top: 3%;
-     }
-
-     .image-section .details h1{
-          font-size: 20px;
-     }
-
-     .image-section .details div{
-          font-size: 13px;
-     }
-
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+@media (max-width: 640px) {
+    .title {
+        font-size: var(--text-2xl);
+    }
+    
+    .sections .card {
+        width: 200px !important;
+        min-width: 200px;
+        height: 280px;
+    }
+    
+    .sections .card img {
+        height: 140px;
+    }
+    
+    .sections .card .card-name {
+        font-size: var(--text-base);
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .add-section {
+        width: 56px;
+        height: 56px;
+        font-size: var(--text-2xl);
+        bottom: var(--space-lg);
+        right: var(--space-lg);
+    }
+    
+    .success {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

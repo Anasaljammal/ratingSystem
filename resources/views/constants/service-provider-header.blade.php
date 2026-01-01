@@ -1,32 +1,36 @@
-<img id="open-sidebar-btn" class="open-sidebar" src="../SVG/sidebar-right.svg" />
+<img id="open-sidebar-btn" class="open-sidebar" src="{{asset('SVG/sidebar-right.svg')}}" />
      <section id="sidebar" class="sidebar">
           <div class="main-container">
-               <h1 class="title">Rating System <img id="close-sidebar-btn" src="../SVG/sidebar-left.svg" /></h1>
+               <h1 class="title">Rating System <img id="close-sidebar-btn" src="{{asset('SVG/sidebar-left.svg')}}" /></h1>
                <hr />
                <div class="rows-container">
-                    <a href="{{url('/sections')}}" class="container" style="{{$type == 'sections'?' border-right: 10px solid blue': ''}}">
+                    <a href="{{url('/sections')}}" class="container {{$type == 'sections' ? 'active' : ''}}">
                          <img src="{{asset('SVG/sections.svg')}}" />
                          <span>Sections</span>
                     </a>
-                    <a href="{{url('/services')}}" class="container" style="{{$type == 'services'?' border-right: 10px solid blue': ''}}">
+                    <a href="{{url('/services')}}" class="container {{$type == 'services' ? 'active' : ''}}">
                          <img src="{{asset('SVG/services.svg')}}" />
                          <span>Services</span>
                     </a>
-                    <a href="{{url('/posts')}}" class="container" style="{{$type == 'posts'?' border-right: 10px solid blue': 'posts'}}">
+                    <a href="{{url('/posts')}}" class="container {{$type == 'posts' ? 'active' : ''}}">
                          <img src="{{asset('SVG/posts.svg')}}" />
                          <span>Posts</span>
                     </a>
-                    <a href="{{url('/about_us')}}" class="container" style="{{$type == 'about_us'?' border-right: 10px solid blue': 'posts'}}">
+                    <a href="{{url('/about_us')}}" class="container {{$type == 'about_us' ? 'active' : ''}}">
                          <img src="{{asset('SVG/about-us.svg')}}" />
                          <span>About Us</span>
                     </a>
-                    <a href="{{url('/supports/create')}}" class="container" style="{{$type == 'support'?' border-right: 10px solid blue': 'posts'}}">
+                    <a href="{{url('/supports/create')}}" class="container {{$type == 'support' ? 'active' : ''}}">
                          <img src="{{asset('SVG/support.svg')}}" />
                          <span>Support</span>
                     </a>
-                    <a href="{{url('/questions')}}" class="container" style="{{$type == 'questions'?' border-right: 10px solid blue': 'posts'}}">
+                    <a href="{{url('/questions')}}" class="container {{$type == 'questions' ? 'active' : ''}}">
                          <img src="{{asset('SVG/question.svg')}}" />
                          <span>Questions</span>
+                    </a>
+                    <a href="{{url('/ai/chatbot')}}" class="container {{$type == 'chatbot' ? 'active' : ''}}">
+                         <img src="{{asset('SVG/chat.svg')}}" />
+                         <span>Chatbot</span>
                     </a>
                     <a href="{{url('/logout')}}" class="container">
                          <img src="{{asset('SVG/logout.svg')}}" />
@@ -39,19 +43,20 @@
           <div class="top-section">
                <h1 class="header-title">Rating System</h1>
                <div class="links-container">
-                    <a href="{{url('/sections')}}" style="{{$type == 'sections'?' background-color: gainsboro': ''}}">Sections</a>
-                    <a href="{{url('/services')}}" style="{{$type == 'services'?' background-color: gainsboro': ''}}">Services</a>
-                    <a href="{{url('/posts')}}" style="{{$type == 'posts'?' background-color: gainsboro': ''}}">Posts</a>
-                    <a href="{{url('/about_us')}}" style="{{$type == 'about_us'?' background-color: gainsboro': ''}}">About Us</a>
-                    <a href="{{url('/supports/create')}}" style="{{$type == 'support'?' background-color: gainsboro': ''}}">Support</a>
-                    <a href="{{url('/questions')}}" style="{{$type == 'questions'?' background-color: gainsboro': ''}}">Question</a>
+                    <a href="{{url('/sections')}}" class="{{$type == 'sections' ? 'active' : ''}}">Sections</a>
+                    <a href="{{url('/services')}}" class="{{$type == 'services' ? 'active' : ''}}">Services</a>
+                    <a href="{{url('/posts')}}" class="{{$type == 'posts' ? 'active' : ''}}">Posts</a>
+                    <a href="{{url('/about_us')}}" class="{{$type == 'about_us' ? 'active' : ''}}">About Us</a>
+                    <a href="{{url('/supports/create')}}" class="{{$type == 'support' ? 'active' : ''}}">Support</a>
+                    <a href="{{url('/questions')}}" class="{{$type == 'questions' ? 'active' : ''}}">Question</a>
+                     <a href="{{url('/ai/chatbot')}}" class="{{$type == 'chatbot' ? 'active' : ''}}">Chatbot</a>
                     <a href="{{url('/logout')}}">Logout</a>
                </div>
                <a href="{{url('/')}}" class="profile">
                     @if ($user->image)
                          <img src="{{url('')}}/{{$user->image}}" alt="error" />
                          @else
-                         <img src="../IMAGES/user.jpg" alt="error" />
+                         <img src="{{asset('IMAGES/user.jpg')}}" alt="error" />
                     @endif
                </a>
           </div>

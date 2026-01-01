@@ -1,108 +1,126 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN ADD SERVICE TYPE PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-.error{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: red;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.error {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--error-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.title{
-     text-align: center;
-     margin-top: 2%;
+.title {
+    text-align: center;
+    margin: var(--space-2xl) 0;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-form{
-     width: 40%;
-     height: 300px;
-     margin-left: 30%;
-     margin-top: 10%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: space-between;
-     border-radius: 8px 0 8px 0;
-     box-shadow: 0px 1px 10px;
-     background-color: whitesmoke;
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: var(--space-2xl) auto;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+    border: 1px solid var(--border-color);
 }
 
-form input{
-     width: 90%;
-     height: 40px;
-     border-radius: 8px;
-     border: none;
-     font-size: 20px;
-     text-indent: 2%;
-     outline: none;
-     margin-top: 10%;
-     background: gainsboro;
+form input {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    outline: none;
+    transition: all var(--transition-base);
 }
 
-form button{
-     width: 30%;
-     height: 40px;
-     border-radius: 10px;
-     border: none;
-     margin-top: 20%;
-     background-color: blue;
-     color: white;
-     font-size: 20px;
-     cursor: pointer;
-     transition: 0.5s;
-     margin-bottom: 5%;
+form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-form button:hover{
-     background: none;
-     border: 1px solid blue;
-     color: blue;
+form button {
+    width: 100%;
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
-a{
-     width: 50px;
-     height: 50px;
-     position: absolute;
-     top: 1%;
-     left: 1%;
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-a img{
-     width: 100%;
-     height: 100%;
+a {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-@media only screen and (width <540px){
-     form{
-          width: 90%;
-          height: 200px;
-          margin-left: 5%;
-          margin-top: 40%;
-     }
+a:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
 
-     form input{
-          width: 90%;
-          height: 40px;
-     }
+a img {
+    width: 100%;
+    height: 100%;
+}
 
-     form button{
-          width: 50%;
-     }
-
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+@media (max-width: 640px) {
+    form {
+        margin: var(--space-xl) var(--space-md);
+        padding: var(--space-xl);
+    }
+    
+    .title {
+        font-size: var(--text-2xl);
+    }
+    
+    .error {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

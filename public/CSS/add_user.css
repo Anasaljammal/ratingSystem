@@ -1,201 +1,243 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN ADD USER PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
+    overflow-x: hidden;
 }
 
-body{
-     height: 100vh;
+.error {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--error-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.error{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: red;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.add-user-section {
+    width: 100%;
+    max-width: 900px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-3xl);
+    border: 1px solid var(--border-color);
 }
 
-.add-user-section{
-     width: 70%;
-     min-height: 100%;
-     margin-left: 15%;
-     border-radius: 15px;
-     background-color: white;
-     box-shadow: -2px 3px 20px 4px gray;
+.add-user-section .title {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-sm);
+    padding: 0;
 }
 
-.add-user-section .title{
-     padding: 1% 3%;
+.add-user-section .register-date {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
 }
 
-.add-user-section .register-date{
-     color: gray;
-     margin-left: 3%;
+.add-user-section .separator {
+    width: 100%;
+    height: 4px;
+    margin: var(--space-xl) 0;
+    background: var(--primary-gradient);
+    border-radius: var(--border-radius-full);
 }
 
-.add-user-section .separator{
-     width: 90%;
-     height: 100px;
-     margin: 5% 5%;
-     background-image: linear-gradient(to right, rgb(109, 216, 219), antiquewhite 50%);
-     border-radius: 10px 10px 0 0;
+.add-user-section form {
+    position: relative;
+    width: 100%;
 }
 
-.add-user-section form{
-     position: relative;
-     width: 90%;
-     height: 50%;
-     margin-left: 5%;
+.add-user-section form .header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.add-user-section form .header{
-     width: 100%;
-     height: 20%;
+.add-user-section form .header .image-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
 }
 
-.add-user-section form .header .image-container{
-     float: left;
-     margin-right: 5%;
+.add-user-section form .header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
 }
 
-.add-user-section form .header img{
-     width: 60px;
-     height: 60px;
-     border: 1px solid gray;
-     border-radius: 50%;
+.add-user-section form .header .image-container input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    cursor: pointer;
 }
 
-.add-user-section form .header .image-container{
-     width: 60px;
-     height: 60px;
-     position: relative;
+.add-user-section form .inputs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
 }
 
-.add-user-section form .header .image-container input{
-     width: 100%;
-     height: 100%;
-     border-radius: 50%;
-     position: absolute;
-     top: 0;
-     left: 0;
-     opacity: 0;
+.add-user-section form .inputs-container .container {
+    width: 100%;
 }
 
-.add-user-section form .inputs-container{
-     width: 90%;
-     margin-left: 5%;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
+.add-user-section form .inputs-container .container div {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
 }
 
-.add-user-section form .inputs-container .container{
-     width: 50%;
+.add-user-section form .inputs-container .container input,
+.add-user-section form .inputs-container .container select {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    outline: none;
+    transition: all var(--transition-base);
 }
 
-.add-user-section form .inputs-container .container input, .add-user-section form .inputs-container .container select{
-     width: 90%;
-     height: 35px;
-     background-color: rgba(211, 211, 211, 0.445);
-     border: none;
-     border-radius: 8px;
-     font-size: 20px;
-     outline: none;
-     text-indent: 2%;
+.add-user-section form .inputs-container .container input:focus,
+.add-user-section form .inputs-container .container select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.add-user-section form .inputs-container .container div{
-     font-size: 20px;
-     margin: 2% 0;
+.add-user-section form .email-container {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
 }
 
-.add-user-section form .email-container{
-     width: 100%;
-     margin-left: 2%;
+.add-user-section form .email-container .title {
+    font-size: var(--text-lg);
+    font-weight: 800;
+    margin-bottom: var(--space-md);
 }
 
-.add-user-section form .email-container .title{
-     font-size: 18px;
-     font-weight: 800;
+.add-user-section form .email-container .container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
 }
 
-.add-user-section form .email-container .container{
-     display: flex;
-     align-items: center;
-     margin-left: 3%;
+.add-user-section form .email-container .container img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
 }
 
-.add-user-section form .email-container .container img{
-     width: 30px;
-     height: 30px;
+.add-user-section form .email-container .container span {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
 }
 
-.add-user-section form .email-container .container span{
-     margin-left: 2%;
+.add-user-section form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--space-sm) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
 }
 
-.add-user-section form button{
-     background-color: rgb(0, 81, 255);
-     width: 8%;
-     height: 30px;
-     border: none;
-     border-radius: 5px;
-     color: white;
-     position: absolute;
-     top: 3%;
-     right: 0;
-     cursor: pointer;
+.add-user-section form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-.back-btn{
-     position: absolute;
-     top: 1%;
-     left: 1%;
+.back-btn {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
 }
 
-.back-btn img{
-     width: 50px;
-     height: 50px;
+.back-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
-@media only screen and (width <540px){
-     .add-user-section{
-          width: 80%;
-          margin-left: 15%;
-     }
+.back-btn img {
+    width: 100%;
+    height: 100%;
+}
 
-     .add-user-section form .inputs-container{
-          display: block;
-     }
-
-     .add-user-section form .first{
-          padding-top: 25%;
-     }
-
-     .add-user-section form .inputs-container .container{
-          width: 100%;
-     }
-
-     .add-user-section form .inputs-container .container input, .add-user-section form .inputs-container .container select{
-          width: 100%;
-     }
-
-     .add-user-section form button{
-          background-color: rgb(0, 81, 255);
-          width: 20%;
-     }
-
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+@media (max-width: 768px) {
+    .add-user-section {
+        padding: var(--space-xl);
+        margin: var(--space-lg) var(--space-md);
+    }
+    
+    .add-user-section form .inputs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .add-user-section form button {
+        position: relative;
+        width: 100%;
+        margin-top: var(--space-lg);
+    }
+    
+    .back-btn {
+        position: relative;
+        margin-bottom: var(--space-lg);
+    }
+    
+    .error {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

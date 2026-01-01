@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AIController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CommentController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceTypeController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\UserController;
+use App\Models\UserRate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,7 +135,7 @@ Route::middleware('check-auth')->group(function () {
         Route::get('/', [UserController::class, 'getUsersPage']);
         Route::get('/{user}', [UserController::class, 'setActivation']);
         Route::prefix('add')->group(function () {
-            Route::get('/', [UserController::class, 'addUserPage']);
+            // Route::get('/', [UserController::class, 'addUserPage']);
             Route::post('/', [UserController::class, 'addUser']);
         });
         Route::prefix('update')->group(function () {
@@ -188,4 +190,13 @@ Route::middleware('check-auth')->group(function () {
             Route::get('/delete/{answer}', [AnswerController::class, 'deleteAnswer']);
         });
     });
+
+    Route::prefix('ai')->group(function () {
+        Route::post('/summorize-comment/{rate}', [AIController::class, 'summorizeComment']);
+        Route::prefix('chatbot')->group(function () {
+            Route::get('/', [AIController::class, 'chatbotPage']);
+            Route::post('/', [AIController::class, 'chatbot'])->name('send.message');
+        });
+    });
 });
+Route::get('add-user', [UserController::class, 'addUserPage'])->middleware('admin-auth');

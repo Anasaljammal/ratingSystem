@@ -1,120 +1,162 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN SERVICE TYPES PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-.error{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: red;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
-}
-.success{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: green;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.error,
+.success {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.title{
-     text-align: center;
-     margin-top: 2%;
+.error {
+    background: var(--error-color);
 }
 
-.service-types-section{
-     width: 90%;
-     margin-top: 3%;
-     margin-left: 5%;
+.success {
+    background: var(--success-color);
 }
 
-.service-types-section .card{
-     width: 15%;
-     height: 130px;
-     background-color: gainsboro;
-     border-radius: 8px;
-     float: left;
-     margin-left: 5%;
-     margin-top: 3%;
+.title {
+    text-align: center;
+    margin: var(--space-2xl) 0;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.service-types-section .card .type-name{
-     height: 100px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-size: 20px;
-     font-weight: 700;
+.service-types-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: var(--space-xl) auto;
+    padding: 0 var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-lg);
 }
 
-.service-types-section .card .edit-btn{
-     text-decoration: none;
-     width: 100%;
-     height: 30px;
-     background-color: cyan;
-     border-radius: 0 0 8px 8px;
-     color: white;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: 20px;
+.service-types-section .card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 130px;
 }
 
-.add-type-btn{
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     background-color: pink;
-     display: flex;
-     position: fixed;
-     bottom: 5%;
-     left: 5%;
+.service-types-section .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
 }
 
-.add-type-btn a{
-     width: 100%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border-radius: 50%;
-     text-decoration: none;
-     font-size: 25px;
-     font-weight: 700;
-     color: white;
+.service-types-section .card .type-name {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    padding: var(--space-lg);
 }
 
-@media only screen and (width <540px){
-     .service-types-section .card{
-          width: 45%;
-          height: 130px;
-          background-color: gainsboro;
-          border-radius: 8px;
-          float: left;
-          margin-left: 5%;
-          margin-top: 3%;
-     }
+.service-types-section .card .edit-btn {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--accent-gradient);
+    color: var(--text-white);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--text-base);
+    font-weight: 600;
+    transition: all var(--transition-base);
+}
 
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+.service-types-section .card .edit-btn:hover {
+    background: var(--accent-color);
+}
+
+.add-type-btn {
+    position: fixed;
+    bottom: var(--space-2xl);
+    left: var(--space-2xl);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--secondary-gradient);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.add-type-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: var(--shadow-2xl);
+}
+
+.add-type-btn a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-types-section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 0 var(--space-md);
+    }
+}
+
+@media (max-width: 640px) {
+    .service-types-section {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+    
+    .add-type-btn {
+        width: 56px;
+        height: 56px;
+        bottom: var(--space-lg);
+        left: var(--space-lg);
+    }
+    
+    .error, .success {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }

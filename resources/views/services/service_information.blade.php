@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
      <meta charset="UTF-8" />
      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="{{asset('CSS/modern-design-system.css')}}" />
      <link rel="stylesheet" href="{{asset('CSS/service_information.css')}}" />
-     <title>{{$service->service_name}}</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+     <title>{{$service->service_name}} - Rating System</title>
 </head>
 
 <body>
@@ -72,12 +77,26 @@
                                         <img src="{{asset('SVG/star.svg')}}" />
                                    @endfor
                               </div>
+                              @if ($rate->analyze['class'] == 'pos')
+                              🙂 
+                              @elseif ($rate->analyze['class'] == 'neg')
+                              ☹️
+                              @else
+                              😐
+                              @endif
+                              <button class="sound-btn" onclick="speakThis({{$rate->id}})">🔊</button>
                          </div>
-                         <div class="comment">{{$rate->comment}}</div>
+                         <div id="comment-{{$rate->id}}" class="comment">{{$rate->comment}}</div>
+                         <button id="btn-{{$rate->id}}" class="summorize-btn" onclick="updateText({{ $rate->id }})">
+                              <span id="btn-text-{{$rate->id}}">Summorize</span>
+                              <div id="spinner-{{$rate->id}}" class="spinner spinner-border text-light" style="display: none;" role="status">
+                                   <span class="visually-hidden">Loading...</span>
+                              </div>
+                         </button>
                          </div>
                          <hr />
                     @endforeach
-                    
+               </div>
           </section>
      </section>
      <section id="background" class="background"></section>
@@ -129,10 +148,43 @@
      <script>
           var url = "{{url('')}}";
      </script>
+     <script>
+          function updateText(id) {
+               var btnText = document.getElementById(`btn-text-${id}`);
+               var spinner = document.getElementById(`spinner-${id}`);
+               var btn = document.getElementById(`btn-${id}`);
+
+               btnText.style.display = 'none';
+               spinner.style.display = 'inline-block';
+               btn.disabled = true;
+               fetch(`/ai/summorize-comment/${id}`, {
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json',
+                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({})
+               })
+               .then(response => response.json())
+               .then(data => {
+                    document.getElementById(`comment-${id}`).innerText = data.text.data.summary;
+                    btn.style.display = 'none';
+               })
+               .catch(error => console.error('Error:', error));
+          }
+     </script>
+     <script src="https://code.responsivevoice.org/responsivevoice.js?key=PLUgIcGB"></script>
+     <script>
+          function speakThis(id) {
+               const text = document.getElementById(`comment-${id}`).innerText.replace('🔊', '').trim();
+               responsiveVoice.speak(text, 'UK English Female');
+          }
+     </script>
      <script src="{{asset('JS/imag_view.js')}}"></script>
      <script src="{{asset('JS/reporting.js')}}"></script>
      <script src="{{asset('JS/service_information_windows.js')}}"></script>
      <script src="{{asset('JS/error_message.js')}}"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>

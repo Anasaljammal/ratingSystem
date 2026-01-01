@@ -1,230 +1,282 @@
-*{
-     margin: 0;
-     padding: 0;
-     font-family: system-ui;
+/* ============================================
+   MODERN NOTIFICATIONS PAGE STYLES
+   ============================================ */
+
+body {
+    min-height: 100vh;
+    background: var(--bg-secondary);
 }
 
-.success{
-     position: absolute;
-     padding: 1%;
-     top: 1%;
-     left: 50%;
-     transform: translateX(-50%);
-     width: 30%;
-     height: 30px;
-     border-radius: 8px;
-     color: white;
-     background-color: green;
-     font-size: 20px;
-     text-align: center;
-     line-height: 30px;
+.success {
+    position: fixed;
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    color: white;
+    background: var(--success-color);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    animation: slideDown 0.3s ease-out;
 }
 
-.main-title{
-     width: 96%;
-     margin-left: 2%;
-     margin-top: 3%;
-     color: cyan;
-     border-bottom: 2px solid cyan;
+.main-title {
+    width: 100%;
+    max-width: 1400px;
+    margin: var(--space-2xl) auto var(--space-lg);
+    padding: 0 var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 3px solid;
+    border-image: var(--primary-gradient) 1;
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-table{
-     margin-left: 2%;
-     width: 96%;
+table {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 var(--space-md);
+    padding: 0 var(--space-xl);
 }
 
-table tr{
-     width: 100%;
-     min-height: 100px;
-     display: flex;
-     justify-content: space-between;
-     font-size: 20px;
-     box-shadow: 6px 9px 16px gray;
+table tr {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    transition: all var(--transition-base);
+    border: 1px solid var(--border-color);
 }
 
-table tr:first-child{
-     border-bottom: 1px solid gray;
-     box-shadow: none;
-     font-size: 15px;
-     font-weight: 800;
-     padding: 1% 0;
+table tr:first-child {
+    background: var(--primary-gradient);
+    color: var(--text-white);
+    box-shadow: var(--shadow-lg);
+    font-size: var(--text-sm);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-table tr td{
-     width: 100%;
-     text-align: center;
-     display: flex;
-     align-items: center;
-     justify-content: center;
+table tr:not(:first-child):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
 }
 
-table tr td img{
-     width: 50px;
-     height: 50px;
+table tr td {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm);
 }
 
-.background{
-     display: none;
-     position: fixed;
-     top: 0;
-     width: 100%;
-     height: 100%;
-     background-color: rgba(128, 128, 128, 0.555);
+table tr td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
 }
 
-.delete-comment-section{
-     display: none;
-     width: 50%;
-     height: 60%;
-     border-radius: 8px;
-     background-color: black;
-     position: fixed;
-     top: 50%;
-     left: 50%;
-     transform: translate(-50%, -50%);
+.background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
 }
 
-.delete-comment-section .header{
-     position: relative;
-     width: 100%;
-     height: 70px;
-     margin-top: 7%;
-     margin-left: 2%;
-     display: flex;
-     align-items: center;
+.delete-comment-section {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-2xl);
+    padding: var(--space-2xl);
+    z-index: 1001;
+    border: 1px solid var(--border-color);
+    overflow-y: auto;
 }
 
-.delete-comment-section .header .username{
-     color: white;
-     font-size: 20px;
-     margin-left: 5%;
+.delete-comment-section .header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.delete-comment-section .header .profile-image{
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     border: 1px solid gray;
+.delete-comment-section .header .profile-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
 }
 
-.delete-comment-section .header .stars-container{
-     height: 100%;
-     display: flex;
-     align-items: center;
-     position: absolute;
-     right: 5%;
+.delete-comment-section .header .username {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-primary);
 }
 
-.delete-comment-section .header .stars-container img{
-     width: 30px;
-     height: 30px;
+.delete-comment-section .header .stars-container {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    margin-left: auto;
 }
 
-.delete-comment-section .comment{
-     font-size: 18px;
-     color: white;
-     font-style: italic;
-     width: 90%;
-     height: 100px;
-     margin-left: 5%;
-     margin-top: 2%;
-     overflow-y: scroll;
+.delete-comment-section .header .stars-container img {
+    width: 24px;
+    height: 24px;
 }
 
-.delete-comment-section .comment::-webkit-scrollbar{
-     display: none;
+.delete-comment-section .comment {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.6;
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--space-lg);
+    max-height: 200px;
+    overflow-y: auto;
 }
 
-.delete-comment-section .buttons-container{
-     width: 60%;
-     margin-left: 20%;
-     display: flex;
-     justify-content: space-between;
-     margin-top: 5%;
+.delete-comment-section .comment::-webkit-scrollbar {
+    width: 6px;
 }
 
-.delete-comment-section .buttons-container .btn{
-     width: 40%;
-     height: 50px;
-     border-radius: 8px;
-     border: none;
-     font-size: 20px;
-     line-height: 50px;
-     text-align: center;
-     text-decoration: none;
-     color: white;
-     transition: 0.5s;
-     cursor: pointer;
+.delete-comment-section .comment::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius-full);
 }
 
-.delete-comment-section .buttons-container .cancel-btn{
-     background-color: green;
+.delete-comment-section .comment::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--border-radius-full);
 }
 
-.delete-comment-section .buttons-container .cancel-btn:hover{
-     background: none;
-     border: 1px solid green;
-     color: green;
+.delete-comment-section .buttons-container {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
 }
 
-.delete-comment-section .buttons-container .delete-btn{
-     background-color: red;
+.delete-comment-section .buttons-container .btn {
+    flex: 1;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--border-radius-md);
+    border: none;
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
-.delete-comment-section .buttons-container .delete-btn:hover{
-     background: none;
-     border: 1px solid red;
-     color: red;
+.delete-comment-section .buttons-container .cancel-btn {
+    background: var(--success-color);
 }
 
-.delete-comment-section .close-btn{
-     width: 50px;
-     height: 50px;
-     position: absolute;
-     top: 2%;
-     right: 2%;
-     cursor: pointer;
+.delete-comment-section .buttons-container .cancel-btn:hover {
+    background: #059669;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
-table tr td .notification{
-     cursor: pointer;
+.delete-comment-section .buttons-container .delete-btn {
+    background: var(--error-color);
 }
 
-@media only screen and (width <540px){
-     table{
-          display: block;
-          width: 100%;
-          overflow-x: scroll;
-     }
+.delete-comment-section .buttons-container .delete-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
 
-     table tr{
-          font-size: 15px;
-          width: 700px;
-     }
+.delete-comment-section .close-btn {
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all var(--transition-base);
+}
 
-     .delete-comment-section{
-          width: 90%;
-          height: 47%;
-          border-radius: 8px;
-          background-color: black;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-     }
+.delete-comment-section .close-btn:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
 
-     .delete-comment-section .header{
-          position: relative;
-          width: 100%;
-          height: 70px;
-          margin-top: 15%;
-          margin-left: 2%;
-          display: flex;
-          align-items: center;
-     }
+table tr td .notification {
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
 
-     .error, .success{
-          width: 70%;
-          font-size: 15px;
-     }
+table tr td .notification:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    table {
+        padding: 0 var(--space-md);
+    }
+    
+    table tr {
+        flex-wrap: wrap;
+        padding: var(--space-md);
+    }
+    
+    table tr td {
+        width: 100%;
+        justify-content: flex-start;
+        padding: var(--space-xs) 0;
+    }
+    
+    .delete-comment-section {
+        width: 95%;
+        padding: var(--space-lg);
+    }
+    
+    .success {
+        width: 90%;
+        font-size: var(--text-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
 }
