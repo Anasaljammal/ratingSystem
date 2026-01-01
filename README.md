@@ -6,11 +6,11 @@ A Laravel-based rating system application with user authentication, posts, comme
 
 Before you begin, ensure you have the following installed on your system:
 
-- **PHP** >= 8.0
-- **Composer** (PHP dependency manager)
-- **Node.js** and **npm** (for frontend assets)
-- **XAMPP** (for MySQL database and Apache server)
-- **Git** (for version control)
+-   **PHP** >= 8.0
+-   **Composer** (PHP dependency manager)
+-   **Node.js** and **npm** (for frontend assets)
+-   **XAMPP** (for MySQL database and Apache server)
+-   **Git** (for version control)
 
 ## Installation
 
@@ -50,34 +50,38 @@ php artisan key:generate
 ### 5. Database Setup
 
 1. **Start XAMPP**
-   - Open XAMPP Control Panel
-   - Start **Apache** and **MySQL** services
+
+    - Open XAMPP Control Panel
+    - Start **Apache** and **MySQL** services
 
 2. **Create Database**
-   - Open phpMyAdmin (usually at `http://localhost/phpmyadmin`)
-   - Create a new database (e.g., `rating_system`)
+
+    - Open phpMyAdmin (usually at `http://localhost/phpmyadmin`)
+    - Create a new database (e.g., `rating_system`)
 
 3. **Configure Database in `.env`**
-   - Open the `.env` file
-   - Update the database configuration:
-     ```
-     DB_CONNECTION=mysql
-     DB_HOST=127.0.0.1
-     DB_PORT=3306
-     DB_DATABASE=rating_system
-     DB_USERNAME=root
-     DB_PASSWORD=
-     ```
+
+    - Open the `.env` file
+    - Update the database configuration:
+        ```
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=rating_system
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
 
 4. **Run Migrations**
-   ```bash
-   php artisan migrate
-   ```
+
+    ```bash
+    php artisan migrate
+    ```
 
 5. **Seed the Database**
-   ```bash
-   php artisan db:seed
-   ```
+    ```bash
+    php artisan db:seed
+    ```
 
 ## Running the Application
 
@@ -132,18 +136,18 @@ npm start
 
 ## Project Structure
 
-- `app/` - Application core files (Controllers, Models, Services)
-- `database/` - Migrations and seeders
-- `public/` - Public assets (CSS, JS, images)
-- `resources/` - Views and frontend source files
-- `routes/` - Application routes
+-   `app/` - Application core files (Controllers, Models, Services)
+-   `database/` - Migrations and seeders
+-   `public/` - Public assets (CSS, JS, images)
+-   `resources/` - Views and frontend source files
+-   `routes/` - Application routes
 
 ## Technologies Used
 
-- **Laravel 9** - PHP Framework
-- **MySQL** - Database
-- **Laravel Mix** - Frontend asset compilation
-- **XAMPP** - Local development environment
+-   **Laravel 9** - PHP Framework
+-   **MySQL** - Database
+-   **Laravel Mix** - Frontend asset compilation
+-   **XAMPP** - Local development environment
 
 ## License
 
